@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "copy:build": "cp dist/wsparcio-extension/browser/main*.js ../extension/main.js & cp dist/wsparcio-extension/browser/polyfills*.js ../extension/polyfills.js & cp dist/wsparcio-extension/browser/styles*.css ../extension/styles.css",
+    "copy:build": "cp ./dist/wsparcio-extension/browser/main.js ./extension/main.js && cp ./dist/wsparcio-extension/browser/polyfills.js ./extension/polyfills.js && cp ./dist/wsparcio-extension/browser/styles.css ./extension/styles.css",
+    "build:extension": "npm run build && npm run copy:build",
     "test": "ng test"
   },
   "private": true,
