@@ -1,37 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "Automate the Impossible",
+  "name": "My TypeScript Chrome Extension",
   "version": "1.0.0",
-  "description": "Get core website details and allow to navigate through a messy websites",
-  "permissions": ["storage", "tabs"],
-  "host_permissions": ["https://*.youtube.com/*"],
+  "description": "A simple Chrome extension using TypeScript",
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "dist/background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://*.youtube.com/*"],
-      "js": ["main.js"]
+      "matches": ["<all_urls>"],
+      "js": ["dist/content.js"],
+      "run_at": "document_end"
     }
   ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "assets/bookmark.png",
-        "assets/play.png",
-        "assets/delete.png",
-        "assets/save.png"
-      ],
-      "matches": ["https://*.youtube.com/*"]
-    }
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
   ],
+  "host_permissions": ["<all_urls>"],
   "action": {
-    "default_icon": {
-      "16": "assets/ext-icon.png",
-      "24": "assets/ext-icon.png",
-      "32": "assets/ext-icon.png"
-    },
-    "default_title": "Automate the Impossible",
-    "default_popup": "popup.html"
+    "default_popup": "public/popup.html"
   }
 }

@@ -1,0 +1,22 @@
+#chat-container {
+	font-family: Arial, sans-serif;
+}
+
+#chat-input {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+#mic-button,
+#send-button {
+	background-color: #008cba;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#mic-button:hover,
+#send-button:hover {
+	background-color: #006f9b;
+}

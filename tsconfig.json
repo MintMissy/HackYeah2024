@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["dom", "es6"],
+    "types": ["chrome", "webspeechapi"],
+    "outDir": "./dist",
+    "strict": true
+  },
+  "include": ["src"]
+}
