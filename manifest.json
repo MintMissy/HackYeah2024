@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "./extension/polyfills.js",
+        "./extension/main.js"
+      ],
+      "css": [
+        "./extension/styles.css"
+      ]
+    }
+  ],
+  "name": "Counter chrome Extension",
+  "description": "Counter app Easy to use",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  }
+}
