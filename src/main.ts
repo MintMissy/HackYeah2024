@@ -1,7 +1,6 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppComponent } from './app/app.component';
+import {AppComponent} from './app/app.component';
 import {bootstrapApplication} from "@angular/platform-browser";
+import {provideExperimentalZonelessChangeDetection} from "@angular/core";
 
 const ROOT_ELEMENT_TAG = 'app-root';
 
@@ -13,7 +12,6 @@ if (!rootElement) {
   document.body.appendChild(document.createElement(ROOT_ELEMENT_TAG));
 }
 
-// platformBrowserDynamic()
-//   .bootstrapModule(AppComponent)
-//   .catch((err) => console.error(err));
-bootstrapApplication(AppComponent)
+bootstrapApplication(AppComponent, {
+  providers: [provideExperimentalZonelessChangeDetection()]
+})

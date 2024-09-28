@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 
 @Component({
@@ -7,7 +7,9 @@ import {RouterOutlet} from '@angular/router';
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  // encapsulation: ViewEncapsulation.ShadowDom
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class AppComponent {
 }
+

@@ -6,7 +6,6 @@
         "<all_urls>"
       ],
       "js": [
-        "./extension/polyfills.js",
         "./extension/main.js"
       ],
       "css": [
