@@ -4,7 +4,7 @@ import {
 	ViewEncapsulation,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ChatContainerComponent } from './chat-container/chat-container.component';
+import { ChatContainerComponent } from './chat/chat-container/chat-container.component';
 
 @Component({
 	selector: 'app-root',

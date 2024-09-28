@@ -1,0 +1,28 @@
+.chat__header {
+	height: 65px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 1rem 0.5rem 1.5rem;
+	background: #ff7a26;
+	color: #000000;
+
+	&__logo {
+		font-family: 'Saira', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 900;
+		font-style: normal;
+		font-variation-settings: 'wdth' 100;
+		font-size: 24px;
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+
+		button {
+			display: flex;
+			padding: 8px;
+		}
+	}
+}

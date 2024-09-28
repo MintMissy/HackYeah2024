@@ -1,0 +1,35 @@
+body {
+	background-color: red;
+}
+
+.wsparcio {
+	position: fixed;
+	z-index: 1000000;
+	bottom: 2rem;
+	right: 2rem;
+	overflow: hidden;
+	border-radius: 30px;
+	width: 420px;
+	height: 540px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+
+	&__chat {
+		background: #ffffff;
+		padding: 1rem;
+		height: calc(100% - 140px);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&__actions {
+			margin-left: 8px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+	}
+}
+
+input.wsparcio__footer__input:focus {
+	outline-width: 0;
+}

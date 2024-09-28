@@ -1,0 +1,47 @@
+<form (ngSubmit)="onSubmit()" class="chat__footer">
+	<input
+		[formControl]="messageInputControl"
+		class="chat__footer__input"
+		type="text"
+		placeholder="Zadaj pytanie"
+		name="question"
+	/>
+	<button
+		(click)="handleMicrophone()"
+		[style.background-color]="promptingText() ? '#ff5d5d' : 'transparent'"
+		class="chat__footer__button chat__footer__button--microphone"
+		aria-label="Użyj mikrofonu"
+		type="button"
+	>
+		<svg
+			width="20"
+			height="21"
+			viewBox="0 0 20 21"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="M9.99913 2C8.34223 2 6.99911 3.34315 6.99911 5V11C6.99911 12.6569 8.34223 14 9.99913 14C11.6559 14 12.9991 12.6569 12.9991 11V5C12.9991 3.34315 11.6559 2 9.99913 2ZM9.99913 0C12.7605 0 14.9991 2.23858 14.9991 5V11C14.9991 13.7614 12.7605 16 9.99913 16C7.23768 16 4.99911 13.7614 4.99911 11V5C4.99911 2.23858 7.23768 0 9.99913 0ZM0.191406 12.9615L2.15295 12.5692C2.88224 16.2361 6.11791 19 9.99913 19C13.8803 19 17.1159 16.2361 17.8452 12.5692L19.8068 12.9615C18.8951 17.5452 14.8506 21 9.99913 21C5.14761 21 1.10303 17.5452 0.191406 12.9615Z"
+				fill="#1D1D1D"
+			/>
+		</svg>
+	</button>
+	<button
+		class="chat__footer__button"
+		aria-label="Wyślij zapytanie"
+		type="submit"
+	>
+		<svg
+			width="20"
+			height="22"
+			viewBox="0 0 20 22"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="M0.5 0.345703C0.58425 0.345703 0.66714 0.366993 0.74096 0.407593L19.2034 10.5619C19.4454 10.695 19.5337 10.999 19.4006 11.241C19.3549 11.3241 19.2865 11.3925 19.2034 11.4382L0.74096 21.5925C0.499 21.7256 0.19497 21.6373 0.0618899 21.3954C0.0212899 21.3215 0 21.2387 0 21.1544V0.845703C0 0.569563 0.22386 0.345703 0.5 0.345703ZM2 3.38261V10H7V12H2V18.6175L15.8499 11L2 3.38261Z"
+				fill="#1D1D1D"
+			/>
+		</svg>
+	</button>
+</form>

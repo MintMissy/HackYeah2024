@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,125,900;1,125,900&family=Saira:ital,wght@0,900;1,900&display=swap');
+
+* {
+	// reset
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+
+	// font
+	font-family: 'Archivo', sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
+	font-size: 14px;
+	line-height: 22px;
+	letter-spacing: 0.005em;
+}
+
+button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}

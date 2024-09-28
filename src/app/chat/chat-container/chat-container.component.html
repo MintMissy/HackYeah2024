@@ -1,0 +1,23 @@
+<div class="wsparcio">
+	<app-chat-header />
+
+	<div class="wsparcio__chat">
+		<app-chat-message />
+		<div class="wsparcio__chat__actions">
+			<app-chat-action-chip
+				(actionClicked)="handleActionClick($event)"
+				[actionTitle]="'Przejrzyj ofertę'"
+			/>
+			<app-chat-action-chip
+				(actionClicked)="handleActionClick($event)"
+				[actionTitle]="'Przejrzyj realizację'"
+			/>
+			<app-chat-action-chip
+				(actionClicked)="handleActionClick($event)"
+				[actionTitle]="'Zostaw numer telefonu'"
+			/>
+		</div>
+	</div>
+
+	<app-chat-footer />
+</div>

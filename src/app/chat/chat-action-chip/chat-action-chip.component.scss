@@ -1,0 +1,18 @@
+:host {
+	display: block;
+	:hover {
+		background-color: #e3e3e3;
+		cursor: pointer;
+	}
+}
+
+.chat-action-chip {
+	width: fit-content;
+	border: 1px solid #f57e34;
+	border-radius: 10px;
+	padding: 8px 12px;
+
+	font-size: 0.81rem;
+	line-height: 15.73px;
+	text-align: left;
+}
