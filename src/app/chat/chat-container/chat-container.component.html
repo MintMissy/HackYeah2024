@@ -1,23 +1,33 @@
-<div class="wsparcio">
-	<app-chat-header />
+@if (minimized()) {
+	<button
+		(click)="minimized.set(false)"
+		class="minimized-wsparcio"
+		aria-label="Otwórz wsparcio"
+	>
+		Wsparcio
+	</button>
+} @else {
+	<div class="wsparcio" appDraggable>
+		<app-chat-header (close)="minimized.set(true)" />
 
-	<div class="wsparcio__chat">
-		<app-chat-message />
-		<div class="wsparcio__chat__actions">
-			<app-chat-action-chip
-				(actionClicked)="handleActionClick($event)"
-				[actionTitle]="'Przejrzyj ofertę'"
-			/>
-			<app-chat-action-chip
-				(actionClicked)="handleActionClick($event)"
-				[actionTitle]="'Przejrzyj realizację'"
-			/>
-			<app-chat-action-chip
-				(actionClicked)="handleActionClick($event)"
-				[actionTitle]="'Zostaw numer telefonu'"
-			/>
+		<div class="wsparcio__chat">
+			<app-chat-message />
+			<div class="wsparcio__chat__actions">
+				<app-chat-action-chip
+					(actionClicked)="handleActionClick($event)"
+					[actionTitle]="'Przejrzyj ofertę'"
+				/>
+				<app-chat-action-chip
+					(actionClicked)="handleActionClick($event)"
+					[actionTitle]="'Przejrzyj realizację'"
+				/>
+				<app-chat-action-chip
+					(actionClicked)="handleActionClick($event)"
+					[actionTitle]="'Zostaw numer telefonu'"
+				/>
+			</div>
 		</div>
-	</div>
 
-	<app-chat-footer />
-</div>
+		<app-chat-footer />
+	</div>
+}

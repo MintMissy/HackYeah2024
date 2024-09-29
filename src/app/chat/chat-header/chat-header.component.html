@@ -23,6 +23,7 @@
 			(click)="onDialogMove()"
 			class="chat__header__speaker"
 			aria-label="Przesuwaj dialog"
+			appDragHandle
 		>
 			<svg
 				width="22"
@@ -38,7 +39,7 @@
 			</svg>
 		</button>
 		<button
-			(click)="onDialogClose()"
+			(click)="close.emit()"
 			class="chat__header__speaker"
 			aria-label="Zamknij wsparcio"
 		>

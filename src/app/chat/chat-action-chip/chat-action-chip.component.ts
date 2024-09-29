@@ -1,14 +1,19 @@
-import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	input,
+	output,
+} from '@angular/core';
 
 @Component({
-  selector: 'app-chat-action-chip',
-  standalone: true,
-  imports: [],
-  templateUrl: './chat-action-chip.component.html',
-  styleUrl: './chat-action-chip.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+	selector: 'app-chat-action-chip',
+	standalone: true,
+	imports: [],
+	templateUrl: './chat-action-chip.component.html',
+	styleUrl: './chat-action-chip.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatActionChipComponent {
-  actionTitle = input.required<string>();
-  actionClicked = output<string>();
+	actionTitle = input.required<string>();
+	actionClicked = output<string>();
 }
