@@ -34,6 +34,12 @@
 					},
 					"configurations": {
 						"production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environment/env.ts",
+                  "with": "src/environment/env-prod.ts"
+                }
+              ],
 							"optimization": {
 								"scripts": true,
 								"styles": {
@@ -71,8 +77,9 @@
 							"buildTarget": "wsparcio-extension:build:production"
 						},
 						"development": {
-							"buildTarget": "wsparcio-extension:build:development"
-						}
+							"buildTarget": "wsparcio-extension:build:development",
+              "proxyConfig": "src/proxy.conf.json"
+            }
 					},
 					"defaultConfiguration": "development"
 				},

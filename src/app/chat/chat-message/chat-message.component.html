@@ -1,9 +1,11 @@
-<div [class]="fromServer() ? 'server' : 'client'" class="chat__message">
-	<ng-content />
+<div [class]="messages().fromServer ? 'server' : 'client'" class="chat__message">
+  <div class="message">
+    <ng-content />
+  </div>
 
-	@if (fromServer()) {
+	@if (messages().fromServer) {
 		<button
-			(click)="onReadMessage()"
+			(click)="onReadMessage(messages().message)"
 			class="chat__message__speaker"
 			aria-label="Przeczytaj wiadomość"
 		>

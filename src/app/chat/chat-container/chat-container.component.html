@@ -1,79 +1,29 @@
 @if (minimized()) {
-	<button
-		(click)="minimized.set(false)"
-		class="minimized-wsparcio"
-		aria-label="Otwórz wsparcio"
-	>
-		Wsparcio
-	</button>
+  <button
+    (click)="minimized.set(false)"
+    class="minimized-wsparcio"
+    aria-label="Otwórz wsparcio"
+  >
+    Wsparcio
+  </button>
 } @else {
-	<div class="wsparcio" appDraggable>
-		<app-chat-header (close)="minimized.set(true)" />
+  <div class="wsparcio" appDraggable>
+    <app-chat-header (close)="minimized.set(true)"/>
 
-		<div class="wsparcio__chat" #chatContainer>
-			<app-chat-message [fromServer]="true">
-				<p>Najważniejsze informacje na stronie:</p>
-				<p><strong>Opis:</strong> Firma stolarska</p>
-				<p><strong>Nr telefonu:</strong> 603 316 828</p>
-				<p><strong>Adres:</strong> ul. Zielona 1a, 64-115 Świętochowa</p>
-				<p>
-					<strong>Oferta:</strong> Kuchnie, Meble, Tarasy, Zadaszenia,
-					Restauracje, Sypialnie, Schody - Wszystko na wymiar
-				</p>
-			</app-chat-message>
+    <div class="wsparcio__chat" #chatContainer>
+      <app-chat-message *ngFor="let msg of messages()" [messages]="msg">
+        <span>{{ msg.message }}</span>
+      </app-chat-message>
 
-			<div class="wsparcio__chat__actions">
-				<app-chat-action-chip
-					(actionClicked)="handleActionClick($event)"
-					[actionTitle]="'Przejrzyj ofertę'"
-					[selected]="true"
-				/>
-				<app-chat-action-chip
-					(actionClicked)="handleActionClick($event)"
-					[actionTitle]="'Przejrzyj realizację'"
-					[selected]="false"
-				/>
-				<app-chat-action-chip
-					(actionClicked)="handleActionClick($event)"
-					[actionTitle]="'Zostaw numer telefonu'"
-					[selected]="false"
-				/>
-			</div>
-
-			<app-chat-message [fromServer]="false">
-				<p>Przejrzyj ofertę</p>
-			</app-chat-message>
-
-			<app-chat-message [fromServer]="true">
-				<p>Najważniejsze informacje na stronie:</p>
-				<p><strong>Opis:</strong> Firma stolarska</p>
-				<p><strong>Nr telefonu:</strong> 603 316 828</p>
-				<p><strong>Adres:</strong> ul. Zielona 1a, 64-115 Świętochowa</p>
-				<p>
-					<strong>Oferta:</strong> Kuchnie, Meble, Tarasy, Zadaszenia,
-					Restauracje, Sypialnie, Schody - Wszystko na wymiar
-				</p>
-			</app-chat-message>
-
-			<div class="wsparcio__chat__actions">
-				<app-chat-action-chip
-					(actionClicked)="handleActionClick($event)"
-					[actionTitle]="'Przejrzyj ofertę'"
-					[selected]="true"
-				/>
-				<app-chat-action-chip
-					(actionClicked)="handleActionClick($event)"
-					[actionTitle]="'Przejrzyj realizację'"
-					[selected]="false"
-				/>
-				<app-chat-action-chip
-					(actionClicked)="handleActionClick($event)"
-					[actionTitle]="'Zostaw numer telefonu'"
-					[selected]="false"
-				/>
-			</div>
-		</div>
-
-		<app-chat-footer (submit)="onSubmit()" />
-	</div>
+      <div class="wsparcio__chat__actions">
+        <app-chat-action-chip
+          *ngFor="let action of actions()"
+          (actionClicked)="handleActionClick($event)"
+          [actionTitle]="action.message"
+          [selected]="action.send"
+        />
+      </div>
+    </div>
+    <app-chat-footer (submit)="onSubmit($event)"/>
+  </div>
 }

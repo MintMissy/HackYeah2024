@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
@@ -48,8 +48,8 @@ export class SpeechService {
 		const vocalWelcome = new SpeechSynthesisUtterance(text);
 
 		vocalWelcome.lang = this.LANG;
-		vocalWelcome.pitch = 5;
-		vocalWelcome.rate = 1.5;
+		vocalWelcome.pitch = 3;
+		vocalWelcome.rate = 1;
 
 		window.speechSynthesis.speak(vocalWelcome);
 	}
