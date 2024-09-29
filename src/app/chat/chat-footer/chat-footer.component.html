@@ -1,6 +1,6 @@
-<form (ngSubmit)="onSubmit()" class="chat__footer">
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="chat__footer">
 	<input
-		[formControl]="messageInputControl"
+		formControlName="text"
 		class="chat__footer__input"
 		type="text"
 		placeholder="Zadaj pytanie"

@@ -15,5 +15,7 @@ import {
 })
 export class ChatActionChipComponent {
 	actionTitle = input.required<string>();
+	selected = input.required<boolean>();
+
 	actionClicked = output<string>();
 }

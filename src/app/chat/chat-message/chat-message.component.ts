@@ -17,9 +17,10 @@ import { SpeechService } from '../../services/speech/speech.service';
 export class ChatMessageComponent {
 	private readonly _speechService = inject(SpeechService);
 
-	readonly fromServer = input(false);
+	readonly fromServer = input.required();
 
 	onReadMessage(): void {
+		// TODO update text
 		this._speechService.textToSpeech('Najważniejsze informacje na stronie:');
 	}
 }

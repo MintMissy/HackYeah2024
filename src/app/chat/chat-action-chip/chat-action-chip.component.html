@@ -1,3 +1,7 @@
-<button (click)="actionClicked.emit(actionTitle())" class="chat-action-chip">
+<button
+	(click)="actionClicked.emit(actionTitle())"
+	[class.selected]="selected()"
+	class="chat-action-chip"
+>
 	{{ actionTitle() }}
 </button>

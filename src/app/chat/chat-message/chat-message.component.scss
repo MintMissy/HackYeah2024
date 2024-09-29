@@ -1,10 +1,8 @@
 .chat__message {
-	background: #f4f4f4;
-	border-radius: 0rem 0.25rem 0.25rem 0.25rem;
 	padding: 1rem;
 	margin-left: 8px;
 	position: relative;
-	color: #1d1d1d;
+	width: fit-content;
 
 	&:before {
 		content: '\A';
@@ -12,16 +10,29 @@
 		top: 0;
 	}
 
-	&.right:before {
-		border-top: 8px solid #f4f4f4;
-		border-right: 8px solid transparent;
-		right: -8px;
+	&.server {
+		background: #f4f4f4;
+		color: #1d1d1d;
+		border-radius: 0rem 0.25rem 0.25rem 0.25rem;
 	}
 
-	&.left:before {
+	&.server:before {
 		left: -8px;
 		border-top: 8px solid #f4f4f4;
 		border-left: 8px solid transparent;
+	}
+
+	&.client {
+		background: #ff7a26;
+		color: #ffffff;
+		margin-left: auto;
+		border-radius: 0.25rem 0 0.25rem 0.25rem;
+	}
+
+	&.client:before {
+		border-top: 8px solid #ff7a26;
+		border-right: 8px solid transparent;
+		right: -8px;
 	}
 
 	&__speaker {

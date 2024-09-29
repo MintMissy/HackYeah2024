@@ -12,8 +12,14 @@
 	border: 1px solid #f57e34;
 	border-radius: 10px;
 	padding: 8px 12px;
+	color: #1d1d1d;
 
 	font-size: 0.81rem;
 	line-height: 15.73px;
 	text-align: left;
+
+	&.selected {
+		background-color: #f57e34;
+		color: #ffffff;
+	}
 }

@@ -3,9 +3,10 @@ import {
 	Component,
 	DestroyRef,
 	inject,
+	output,
 	signal,
 } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { finalize, Subscription, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SpeechService } from '../../services/speech/speech.service';
@@ -19,12 +20,18 @@ import { SpeechService } from '../../services/speech/speech.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatFooterComponent {
+	readonly _fb = inject(FormBuilder);
 	readonly _speechService = inject(SpeechService);
 	readonly _destroyRef = inject(DestroyRef);
 
+	readonly submit = output<void>();
+
+	readonly form = this._fb.group({
+		text: [''],
+	});
+
 	promptingText$?: Subscription;
 	readonly promptingText = signal(false);
-	readonly messageInputControl = new FormControl();
 
 	handleMicrophone(): void {
 		if (this.promptingText()) {
@@ -33,7 +40,7 @@ export class ChatFooterComponent {
 			this.promptingText$ = this._speechService
 				.speechToText()
 				.pipe(
-					tap((text) => this.messageInputControl.setValue(text)),
+					tap((text) => this.form.patchValue({ text })),
 					finalize(() => this.promptingText.set(false)),
 					takeUntilDestroyed(this._destroyRef),
 				)
@@ -43,5 +50,7 @@ export class ChatFooterComponent {
 		this.promptingText.update((value) => !value);
 	}
 
-	onSubmit(): void {}
+	onSubmit(): void {
+		this.submit.emit();
+	}
 }

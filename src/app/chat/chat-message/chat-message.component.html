@@ -1,29 +1,24 @@
-<div [class]="fromServer() ? 'right' : 'left'" class="chat__message">
-	<p>Najważniejsze informacje na stronie:</p>
-	<p><strong>Opis:</strong> Firma stolarska</p>
-	<p><strong>Nr telefonu:</strong> 603 316 828</p>
-	<p><strong>Adres:</strong> ul. Zielona 1a, 64-115 Świętochowa</p>
-	<p>
-		<strong>Oferta:</strong> Kuchnie, Meble, Tarasy, Zadaszenia, Restauracje,
-		Sypialnie, Schody - Wszystko na wymiar
-	</p>
+<div [class]="fromServer() ? 'server' : 'client'" class="chat__message">
+	<ng-content />
 
-	<button
-		(click)="onReadMessage()"
-		class="chat__message__speaker"
-		aria-label="Przeczytaj wiadomość"
-	>
-		<svg
-			width="14"
-			height="16"
-			viewBox="0 0 14 16"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
+	@if (fromServer()) {
+		<button
+			(click)="onReadMessage()"
+			class="chat__message__speaker"
+			aria-label="Przeczytaj wiadomość"
 		>
-			<path
-				d="M13.7051 8C13.7051 6.235 12.6851 4.71 11.2051 3.975V12.03C12.6851 11.29 13.7051 9.765 13.7051 8ZM0.205078 5V11H4.20508L9.20508 16V0L4.20508 5H0.205078Z"
-				fill="black"
-			/>
-		</svg>
-	</button>
+			<svg
+				width="14"
+				height="16"
+				viewBox="0 0 14 16"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M13.7051 8C13.7051 6.235 12.6851 4.71 11.2051 3.975V12.03C12.6851 11.29 13.7051 9.765 13.7051 8ZM0.205078 5V11H4.20508L9.20508 16V0L4.20508 5H0.205078Z"
+					fill="black"
+				/>
+			</svg>
+		</button>
+	}
 </div>

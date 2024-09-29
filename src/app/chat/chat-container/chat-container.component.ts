@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	ElementRef,
+	signal,
+	viewChild,
+} from '@angular/core';
 import { ChatActionChipComponent } from '../chat-action-chip/chat-action-chip.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChatMessageComponent } from '../chat-message/chat-message.component';
@@ -23,6 +29,15 @@ import { DraggableDirective } from '../../directive/draggable/draggable.directiv
 })
 export class ChatContainerComponent {
 	readonly minimized = signal(true);
+	readonly chatContainer =
+		viewChild<ElementRef<HTMLDivElement>>('chatContainer');
 
 	handleActionClick(message: string): void {}
+
+	onSubmit(): void {
+		const container = this.chatContainer()?.nativeElement;
+		if (container) {
+			container.scrollTop = container.scrollHeight;
+		}
+	}
 }
