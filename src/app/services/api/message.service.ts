@@ -12,13 +12,26 @@ export interface ChatAssistantState {
     }[],
     threadId: string;
     assistantId: string;
-    currentUrl: string
+    currentUrl: string;
+    actions: { send: boolean, message: string }[];
 }
 
 @Injectable({
     providedIn: 'root'
 })
 export class MessageService {
+
+    mockedActions: { send: boolean, message: string }[] = [{
+        send: false,
+        message: "Przejrzyj oferte"
+    }, {
+        send: false,
+        message: 'Przejrzyj realizacje'
+    }, {
+        send: false,
+        message: 'Zostaw numer telefonu'
+    }]
+
     _initState: ChatAssistantState = {
         messageHistory: [{
             fromServer: true,
@@ -32,7 +45,8 @@ export class MessageService {
         }],
         threadId: '123',
         assistantId: '321',
-        currentUrl: 'mock.com'
+        currentUrl: 'mock.com',
+        actions: this.mockedActions
     }
 
     _chatAssistantState = signal<ChatAssistantState>(this._initState);
@@ -60,7 +74,8 @@ export class MessageService {
                                     fromServer: true
                                 }],
                                 threadId: response.metadata.threadId,
-                                assistantId: response.metadata.assistantId
+                                assistantId: response.metadata.assistantId,
+                                actions: this.mockedActions
                             })
                         )
                     }
@@ -91,4 +106,5 @@ export class MessageService {
         return this._chatAssistantState().currentUrl;
     }
 }
+
 

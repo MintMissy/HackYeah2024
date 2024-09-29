@@ -28,6 +28,7 @@ export class ChatContainerComponent {
 	readonly chatContainer =
 		viewChild<ElementRef<HTMLDivElement>>('chatContainer');
   messages = input.required<{fromServer: boolean, message: string}[]>();
+  actions = input.required<{send: boolean, message: string}[]>();
   actionClicked = output<string>();
 
 	handleActionClick(message: string): void {

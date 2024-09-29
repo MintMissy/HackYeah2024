@@ -1,3 +1,5 @@
-<app-chat-container [messages]="state.messageHistory" (actionClicked)="sendMessage({
+<app-chat-container [actions]="state.actions"
+                    [messages]="state.messageHistory"
+                    (actionClicked)="sendMessage({
 content: $event, role:'user'
 })"/>
