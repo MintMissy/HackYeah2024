@@ -38,8 +38,13 @@
 	&__speaker {
 		position: absolute;
 		top: 12px;
-		right: 12px;
+		right: 2px;
 		padding: 8px;
 		display: flex;
+    margin-left: 10px;
 	}
+}
+
+.message {
+  margin-right: 10px;
 }

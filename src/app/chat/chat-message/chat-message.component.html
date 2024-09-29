@@ -1,5 +1,7 @@
 <div [class]="fromServer() ? 'server' : 'client'" class="chat__message">
-	<ng-content />
+  <div class="message">
+    <ng-content />
+  </div>
 
 	@if (fromServer()) {
 		<button
