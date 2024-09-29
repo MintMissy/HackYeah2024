@@ -11,7 +11,7 @@
     <app-chat-header (close)="minimized.set(true)"/>
 
     <div class="wsparcio__chat" #chatContainer>
-      <app-chat-message *ngFor="let msg of messages()" [fromServer]="msg.fromServer">
+      <app-chat-message *ngFor="let msg of messages()" [messages]="msg">
         <span>{{ msg.message }}</span>
       </app-chat-message>
 

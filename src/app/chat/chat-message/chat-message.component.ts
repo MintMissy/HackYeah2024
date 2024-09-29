@@ -1,10 +1,5 @@
-import {
-	ChangeDetectionStrategy,
-	Component,
-	inject,
-	input,
-} from '@angular/core';
-import { SpeechService } from '../../services/speech/speech.service';
+import {ChangeDetectionStrategy, Component, inject, input,} from '@angular/core';
+import {SpeechService} from '../../services/speech/speech.service';
 
 @Component({
 	selector: 'app-chat-message',
@@ -17,10 +12,10 @@ import { SpeechService } from '../../services/speech/speech.service';
 export class ChatMessageComponent {
 	private readonly _speechService = inject(SpeechService);
 
-	readonly fromServer = input.required();
+  messages = input.required<{fromServer: boolean, message: string}>();
 
-	onReadMessage(): void {
+	onReadMessage(message: string): void {
 		// TODO update text
-		this._speechService.textToSpeech('Najważniejsze informacje na stronie:');
+		this._speechService.textToSpeech(message);
 	}
 }
