@@ -30,15 +30,18 @@ export class ChatContainerComponent {
   messages = input.required<{fromServer: boolean, message: string}[]>();
   actions = input.required<{send: boolean, message: string}[]>();
   actionClicked = output<string>();
+  messageSent = output<string>();
 
 	handleActionClick(message: string): void {
     this.actionClicked.emit(message);
   }
 
-	onSubmit(): void {
+	onSubmit(message: string): void {
+    console.log(message)
 		const container = this.chatContainer()?.nativeElement;
 		if (container) {
 			container.scrollTop = container.scrollHeight;
 		}
+    this.messageSent.emit(message);
 	}
 }
