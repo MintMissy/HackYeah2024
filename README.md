@@ -1,7 +1,7 @@
 # Chat Application
 
 This project is a chat application that focuses on improving the accessibility of the old messy websites. This chrome extension was built using Angular. It includes components for displaying chat messages and action chips, allowing users to interact with the chat interface.
-  
+
 ## Features
 
 - **AI Integration**: Integrate AI chatbot to provide automated responses.
@@ -28,3 +28,12 @@ This project is a chat application that focuses on improving the accessibility o
 ## Preview
 
 ![Wsparcio](docs/wsparcio.png)
+
+## Example prompts
+  
+You can use the following example prompts to interact with the chat application. These prompts can help you get information from the website and answer your questions.
+
+- [Corner burger website](http://cornerburger.pl/menu.html)
+
+![Prompt 1](docs/wsparcio-prompt-1.png)
+![Prompt 2](docs/wsparcio-prompt-2.png)

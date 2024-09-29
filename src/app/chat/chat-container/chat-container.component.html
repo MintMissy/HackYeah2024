@@ -1,29 +1,31 @@
 @if (minimized()) {
-  <button
-    (click)="minimized.set(false)"
-    class="minimized-wsparcio"
-    aria-label="Otwórz wsparcio"
-  >
-    Wsparcio
-  </button>
+	<button
+		(click)="minimized.set(false)"
+		class="minimized-wsparcio"
+		aria-label="Otwórz wsparcio"
+	>
+		Wsparcio
+	</button>
 } @else {
-  <div class="wsparcio" appDraggable>
-    <app-chat-header (close)="minimized.set(true)"/>
+	<div class="wsparcio" appDraggable>
+		<app-chat-header (close)="minimized.set(true)" />
 
-    <div class="wsparcio__chat" #chatContainer>
-      <app-chat-message *ngFor="let msg of messages()" [messages]="msg">
-        <span>{{ msg.message }}</span>
-      </app-chat-message>
+		<div class="wsparcio__chat" #chatContainer>
+			@for (msg of messages(); track msg.message) {
+				<app-chat-message [messages]="msg">
+					<span [innerHTML]="msg.message | message"></span>
+				</app-chat-message>
+			}
 
-      <div class="wsparcio__chat__actions">
-        <app-chat-action-chip
-          *ngFor="let action of actions()"
-          (actionClicked)="handleActionClick($event)"
-          [actionTitle]="action.message"
-          [selected]="action.send"
-        />
-      </div>
-    </div>
-    <app-chat-footer (submit)="onSubmit($event)"/>
-  </div>
+			<div class="wsparcio__chat__actions">
+				<app-chat-action-chip
+					*ngFor="let action of actions()"
+					(actionClicked)="handleActionClick($event)"
+					[actionTitle]="action.message"
+					[selected]="action.send"
+				/>
+			</div>
+		</div>
+		<app-chat-footer (submit)="onSubmit($event)" />
+	</div>
 }

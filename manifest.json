@@ -1,23 +1,16 @@
 {
-  "manifest_version": 3,
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "./extension/main.js"
-      ],
-      "css": [
-        "./extension/styles.css"
-      ]
-    }
-  ],
-  "name": "Counter chrome Extension",
-  "description": "Counter app Easy to use",
-  "version": "1.0.0",
-  "action": {
-    "default_popup": "index.html"
-  },
-  "content-security-policy": true
+	"manifest_version": 3,
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["./extension/main.js"],
+			"css": ["./extension/styles.css"]
+		}
+	],
+	"name": "Webpage Interaction Counter",
+	"description": "A Chrome extension to count and display interactions on any webpage.",
+	"version": "1.0.0",
+	"action": {
+		"default_popup": "./extension/index.html"
+	}
 }
