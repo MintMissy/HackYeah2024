@@ -51,7 +51,7 @@ export class MessageService {
 
     _chatAssistantState = signal<ChatAssistantState>(this._initState);
 
-    baseUrl = `${environment.apiUrl}`;
+    baseUrl = `${environment.apiUrl}/api/v1`;
 
     constructor(private http: HttpClient) {
     }
@@ -59,6 +59,7 @@ export class MessageService {
     fetchSiteInformation() {
         const params = new HttpParams().set('url', this.getUrl());
         // const params = new HttpParams().set('url', 'http://www.cornerburger.pl/');
+        // http://ec2-3-71-86-240.eu-central-1.compute.amazonaws.com:8080/api/v1/crawler/crawl?url=http%3A%2F%2Fwww.cornerburger.pl%2F
         return this.http.get<SiteInformation>(`${this.baseUrl}/crawler/crawl`, {params})
     }
 

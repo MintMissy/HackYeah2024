@@ -1,6 +1,6 @@
 {
   "/api/**": {
-    "target": "http://ec2-52-29-61-83.eu-central-1.compute.amazonaws.com:8080",
+    "target": "http://ec2-3-71-86-240.eu-central-1.compute.amazonaws.com:8080",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",

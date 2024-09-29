@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  projecth:
+    image: jkazmierczak/projecth-repository
+    environment:
+      SPRING_PROFILES_ACTIVE: default,dev,secret
+    ports:
+      - "8080:8080"
+

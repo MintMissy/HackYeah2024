@@ -33,6 +33,7 @@ export class ChatFooterComponent {
       this.promptingText$ = this._speechService
         .speechToText()
         .pipe(
+          tap((x) => console.log(x)),
           tap((text) => this.form.patchValue({text})),
           finalize(() => this.promptingText.set(false)),
           takeUntilDestroyed(this._destroyRef),
